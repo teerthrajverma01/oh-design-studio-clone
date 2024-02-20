@@ -56,8 +56,31 @@ const RootLayout = () => {
         { display: "block", xPercent: 0, duration: 1 },
         "<"
       )
+      .to(".imgg", { clipPath: "none" }, "<")
       .to(".pin-spacer", { display: "none" });
   });
+
+  const onElementClick = contextSafe(() => {
+    gsap
+      .timeline()
+      .fromTo(
+        ".imgg",
+        {
+          // display: "flex",
+          clipPath: "polygon(100% 0%,100% 0%,100% 100%,100% 100%)",
+        },
+        {
+          // display: "hidden",
+          clipPath: "polygon(0% 0%,100% 0%,100% 100%,0% 100%)",
+
+          duration: 1,
+        }
+      )
+      .to(".mnav", { xPercent: -100, display: "none", duration: 1 }, "<")
+      .to(".imgg", { clipPath: "none" }, "<")
+      .to(".pin-spacer", { display: "flex" }, "<");
+  });
+
   return (
     <Fragment>
       <div ref={mcontainer} className="z-10 h-screen ">
@@ -76,7 +99,7 @@ const RootLayout = () => {
           </div>
         </div>
         <div className="hidden h-full mnav">
-          <Nav />
+          <Nav eleclick={onElementClick} />
         </div>
 
         <div

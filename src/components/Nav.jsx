@@ -1,9 +1,9 @@
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-const Nav = () => {
+const Nav = (props) => {
   const container = useRef();
 
   useGSAP(
@@ -20,6 +20,10 @@ const Nav = () => {
   const onMouseLeave = (className) => {
     gsap.to(`.${className} .overlay`, { xPercent: -100 });
   };
+
+  // const onitemClick = () => {
+  //   props.eleclick();
+  // };
 
   const handleClick = (event) => {
     event.preventDefault();
@@ -39,8 +43,8 @@ const Nav = () => {
             <NavLink
               // href="/about-us"
               // href="/pages"
-              target="_blank"
-              to={"/pages"}
+              // target="_blank"
+              // to={"/pages"}
               onClick={handleClick}
               className="relative about"
               onMouseEnter={() => onMouseEnter("about")}
@@ -91,12 +95,15 @@ const Nav = () => {
               <div className="bg-[#fff500] absolute w-[35rem]  h-full top-0 left-0 -z-10 overlay"></div>
             </NavLink>
           </div>
-          <div className="overflow-hidden tracking-tighter text-8xl">
+          <div
+            className="overflow-hidden tracking-tighter text-8xl "
+            // onClick={onitemClick}
+          >
             <NavLink
               // href="/news"
               // href="/pages"
               to={"/pages"}
-              // onClick={handleClick}
+              onClick={handleClick}
               className="relative news"
               onMouseEnter={() => onMouseEnter("news")}
               onMouseLeave={() => onMouseLeave("news")}
