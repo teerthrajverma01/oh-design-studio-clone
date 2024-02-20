@@ -39,6 +39,7 @@ const Nav = () => {
             <NavLink
               // href="/about-us"
               // href="/pages"
+              target="_blank"
               to={"/pages"}
               onClick={handleClick}
               className="relative about"
