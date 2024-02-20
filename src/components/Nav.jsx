@@ -78,7 +78,7 @@ const Nav = () => {
             </NavLink>
           </div>
           <div className="overflow-hidden tracking-tighter text-8xl">
-            <a
+            <NavLink
               // href="/portfolio"
               // href="/pages"
               to={"/pages"}
@@ -89,21 +89,21 @@ const Nav = () => {
             >
               <span className="z-10 px-4 text">Portfolio.</span>
               <div className="bg-[#fff500] absolute w-[35rem]  h-full top-0 left-0 -z-10 overlay"></div>
-            </a>
+            </NavLink>
           </div>
           <div className="overflow-hidden tracking-tighter text-8xl">
-            <a
+            <NavLink
               // href="/news"
               // href="/pages"
               to={"/pages"}
-              onClick={handleClick}
+              // onClick={handleClick}
               className="relative news"
               onMouseEnter={() => onMouseEnter("news")}
               onMouseLeave={() => onMouseLeave("news")}
             >
               <span className="z-10 px-4 text">News.</span>
               <div className="bg-[#fff500] absolute w-[35rem]  h-full top-0 left-0 -z-10 overlay"></div>
-            </a>
+            </NavLink>
           </div>
         </div>
       </div>
